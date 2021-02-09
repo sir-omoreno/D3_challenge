@@ -48,7 +48,7 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
   // var leftAxis = d3.axisLeft(yScale)
   var { bottomAxis, leftAxis } = newFunction(xScale, yScale);
 
-  // Appending chart and created markers
+  // Appending axis to chart and creating markers (circles)
 
   chartGroup.append("g")
     .attr("transform", `translate(0, ${height})`)
@@ -65,7 +65,7 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
     .attr("cx", d => xScale(d.age))
     .attr("cy", d => yScale(d.smokes))
     .attr("r", "15")
-
+  //Putting state abreviation inside datapoint circles
   chartGroup.append("g")
     .selectAll('text')
     .data(data)
@@ -77,8 +77,16 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
     .attr("y", d => yScale(d.smokes))
     .attr("alignment-baseline", "central")
 
+  // Initialize tooltips
+  var toolTip = d3.tip()
+    .attr("class", "d3-tip")
+    .offset([80, -60])
+    .html(function (d) {
+      return (`${d.state}<br>Age: ${d.age}<br>Smokers: ${d.smokes}%`)
+    })
 
-
+  chartGroup.call(toolTip)
+  
 })
 function newFunction(xScale, yScale) {
   var bottomAxis = d3.axisBottom(xScale);
