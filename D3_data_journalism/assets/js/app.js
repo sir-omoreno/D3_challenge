@@ -34,4 +34,16 @@ d3.csv("assets/data/data.csv").then(function(csv_data) {
     item.poverty = + item.poverty
     item.smoke = + item.smokes
   })
+
+  // Adding scale functions and axis to pass to the chard
+  var xScale = d3.scaleLinear()
+    .domain([30, d3.max(csv_data, d => d.age)])
+    .range([0, width])
+  
+  var yScale = d3.scaleLinear()
+  .domain([30, d3.max(csv_data, d => d.smokes)])
+  .range([0, width])
+
+  var { bottomAxis, leftAxis } = axisFunction(xScale, yScale)
+
 });
