@@ -1,18 +1,19 @@
 // @TODO: YOUR CODE HERE!
 // Creating SVG chart space
-var svgWidth = 900
-var svgHeight = 600
+var svgWidth = 960
+var svgHeight = 500
 
 // Setting margings:
 var margin = {
-  top: 40,
-  right: 60,
-  bottom: 80,
-  left: 80
+  top: 20,
+  right: 40,
+  bottom: 60,
+  left: 100
 }
 // Creating chart bounderies
-var height = svgHeight - margin.top - margin.bottom;
 var width = svgWidth - margin.left - margin.right;
+var height = svgHeight - margin.top - margin.bottom;
+
 
 // Setting SVG wrapper to hold the chart
 var svg = d3.select("#scatter")
@@ -61,7 +62,7 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
     .classed("stateCircle", true)
     .attr("cx", d => xScale(d.age))
     .attr("cy", d => yScale(d.smokes))
-    .attr("r", "15")
+    .attr("r", "12")
   //Putting state abreviation inside datapoint circles
   chartGroup.append("g")
     .selectAll('text')
