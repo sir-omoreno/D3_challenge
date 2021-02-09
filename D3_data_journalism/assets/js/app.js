@@ -1,14 +1,14 @@
 // @TODO: YOUR CODE HERE!
 // Creating SVG chart space
 var svgWidth = 1200
-var svgHeight = 600 
+var svgHeight = 600
 
 // Setting margings:
 var margin = {
-    top: 40,
-    right: 60,
-    bottom: 80,
-    left: 80
+  top: 40,
+  right: 60,
+  bottom: 80,
+  left: 80
 }
 // Creating chart bounderies
 var height = svgHeight - margin.top - margin.bottom;
@@ -25,12 +25,13 @@ var chartGroup = svg.append("g")
 
 // Time to import you data with d3 (CSV method)
 
-d3.csv("assets/data/data.csv").then(funtion(cvs_data) {
-  csv_data.forEach(function(item) {
-    item.age = +i.age
+d3.csv("assets/data/data.csv").then(function(csv_data) {
+
+  csv_data.forEach(function (item) {
+    item.age = +item.age
     item.healthcare = +item.healthcare
-    item.obesity = +ittem.obesity
+    item.obesity = +item.obesity
     item.poverty = + item.poverty
     item.smoke = + item.smokes
   })
-})
+});
