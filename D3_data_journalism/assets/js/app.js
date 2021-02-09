@@ -104,7 +104,6 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
     .attr("transform", "rotate(-90)")
     .attr("y", 0 - margin.left + 30)
     .attr("x", 0 - (height / 2))
-    .attr("dy", "1em")
     .attr("class", "aText")
     .text("Percentage of smokers")
 
