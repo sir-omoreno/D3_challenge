@@ -86,7 +86,18 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
     })
 
   chartGroup.call(toolTip)
-  
+
+  //Making tool tip pop by "mousing over it"
+  circlesGroup.on("mouseover", function (circle) {
+    toolTip.show(circle, this)
+  })
+    // onmouseout event
+    .on("mouseout", function (circle, index) {
+      toolTip.hide(circle, this);
+    })
+
+
+
 })
 function newFunction(xScale, yScale) {
   var bottomAxis = d3.axisBottom(xScale);
