@@ -21,7 +21,7 @@ var svg = d3
   .append("svg")
   .attr("width", svgWidth)
   .attr("height", svgHeight)
-  // .classed("chart", true);
+  .classed("chart", true);
 
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
@@ -32,19 +32,21 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
 
   csv_data.forEach(function (item) {
     item.age = +item.age
-    item.smoke = + item.smokes
+    item.smokes = + item.smokes
   })
 
   // Adding scale functions and axis to pass to the chard
   var xScale = d3.scaleLinear()
+  // Examine the data, setting to 30 as that is the first data point. Matters for scatter plot
     .domain([30, d3.max(csv_data, d => d.age)])
     .range([0, width])
-    
+
 
   var yScale = d3.scaleLinear()
-    .domain([30, d3.max(csv_data, d => d.smokes)])
+  // Examine the data, setting to 9 as that is the first data point. Mattera for scatter plot
+    .domain([9, d3.max(csv_data, d => d.smokes)])
     .range([height, 0])
-    
+
 
   // var bottomAxis = d3.axisBottom(xScale)
   // var leftAxis = d3.axisLeft(yScale)
@@ -98,6 +100,18 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
       toolTip.hide(circle, this);
     })
 
+  chartGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left + 30)
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "1em")
+    .attr("class", "aText")
+    .text("Percentage of smokers")
+
+  chartGroup.append("text")
+    .attr("transform", `translate(${width / 2}, ${height + margin.top + 20})`)
+    .attr("class", "aText")
+    .text("Average Age by State")
 
 })
 
