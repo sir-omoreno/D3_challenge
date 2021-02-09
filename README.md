@@ -35,6 +35,8 @@ Using the D3 techniques we taught you in class, create a scatter plot that repre
 
 * Note: You'll need to use `python -m http.server` to run the visualization. This will host the page at `localhost:8000` in your web browser.
 
+## Example Screenshot
+![Example screenshot](https://github.com/sir-omoreno/D3_challenge/blob/main/D3_data_journalism/Images/D3_times.PNG)
 
 ### Copyright
 
