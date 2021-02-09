@@ -1,6 +1,6 @@
 // @TODO: YOUR CODE HERE!
 // Creating SVG chart space
-var svgWidth = 1200
+var svgWidth = 900
 var svgHeight = 600
 
 // Setting margings:
@@ -29,9 +29,6 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
 
   csv_data.forEach(function (item) {
     item.age = +item.age
-    item.healthcare = +item.healthcare
-    item.obesity = +item.obesity
-    item.poverty = + item.poverty
     item.smoke = + item.smokes
   })
 
