@@ -68,7 +68,7 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
   //Putting state abreviation inside datapoint circles
   chartGroup.append("g")
     .selectAll('text')
-    .data(data)
+    .data(csv_data)
     .enter()
     .append("text")
     .classed("stateText", true)
@@ -97,8 +97,8 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
     })
 
 
-
 })
+
 function newFunction(xScale, yScale) {
   var bottomAxis = d3.axisBottom(xScale);
   var leftAxis = d3.axisLeft(yScale);
