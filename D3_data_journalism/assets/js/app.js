@@ -115,9 +115,9 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
 
 })
 
-// function newFunction(xScale, yScale) {
-//   var bottomAxis = d3.axisBottom(xScale);
-//   var leftAxis = d3.axisLeft(yScale);
-//   return { bottomAxis, leftAxis };
-// }
+function newFunction(xScale, yScale) {
+  var bottomAxis = d3.axisBottom(xScale);
+  var leftAxis = d3.axisLeft(yScale);
+  return { bottomAxis, leftAxis };
+}
 
