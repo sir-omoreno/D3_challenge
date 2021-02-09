@@ -1,28 +1,30 @@
 // @TODO: YOUR CODE HERE!
 // Creating SVG chart space
-var svgWidth = 960
-var svgHeight = 500
+var svgWidth = 960;
+var svgHeight = 500;
 
 // Setting margings:
 var margin = {
   top: 20,
   right: 40,
-  bottom: 60,
+  bottom: 80,
   left: 100
-}
+};
 // Creating chart bounderies
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
 
 // Setting SVG wrapper to hold the chart
-var svg = d3.select("#scatter")
+var svg = d3
+  .select("#scatter")
   .append("svg")
   .attr("width", svgWidth)
   .attr("height", svgHeight)
+  // .classed("chart", true);
 
 var chartGroup = svg.append("g")
-  .attr("transform", `translate(${margin.left}, ${margin.top})`).classed("chart", true)
+  .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // Time to import you data with d3 (CSV method)
 
@@ -37,10 +39,12 @@ d3.csv("assets/data/data.csv").then(function (csv_data) {
   var xScale = d3.scaleLinear()
     .domain([30, d3.max(csv_data, d => d.age)])
     .range([0, width])
+    
 
   var yScale = d3.scaleLinear()
     .domain([30, d3.max(csv_data, d => d.smokes)])
-    .range([0, width])
+    .range([height, 0])
+    
 
   // var bottomAxis = d3.axisBottom(xScale)
   // var leftAxis = d3.axisLeft(yScale)
